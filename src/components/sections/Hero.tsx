@@ -103,7 +103,7 @@ export default function Hero() {
               className="flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-medium text-[#ededed] transition-colors hover:bg-white/10"
             >
               <FileDown size={15} />
-              Download Resume
+              View Resume
             </a>
             <a
               href="https://github.com/maithil22"

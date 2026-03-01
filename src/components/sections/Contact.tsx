@@ -75,7 +75,7 @@ export default function Contact() {
             className="flex items-center gap-2 rounded-lg bg-[#6366f1] px-6 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
           >
             <FileDown size={15} />
-            Download Resume
+            View Resume
           </a>
         </motion.div>
       </div>
