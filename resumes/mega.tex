@@ -1,0 +1,213 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\usepackage[bottom=0.72in,top=0.2in,left=0.375in,right=1.2in]{geometry}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\usepackage{titlesec}
+
+\titlespacing*{\section}
+  {0pt}    % left indent
+  {0ex}  % space before
+  {2.5ex}  % space after
+
+
+% Adjust margins
+% \addtolength{\oddsidemargin}{-0.375in}
+% \addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+% \addtolength{\topmargin}{-0.5in}
+% \addtolength{\bottom}{-0.5in}
+\addtolength{\textheight}{0.5in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-2pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2\\
+      \textit{\small #3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+
+\newcommand{\projectItem}[1]{
+  \item\small{
+    \textbf{#1:}
+  }
+}
+
+\newcommand{\projectSubheading}[1]{
+  \vspace{-4pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} 
+    \end{tabular*}\vspace{-8pt}
+}
+
+\newcommand{\projectSubItem}[2]{\projectItem{#1}{#2}\vspace{-8pt}}
+
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\projectSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\projectSubHeadingListEnd}{\end{itemize}}
+\newcommand{\projectItemListStart}{\begin{itemize}}
+\newcommand{\projectItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{https://https://www.linkedin.com/company/pepcoding-education/mycompany/}{\Large Maithil Rupesh Mehta}} & Email :  \href{mailto:maithilmehta22@gmail.com}{maithilmehta22@gmail.com}\\
+%   \href{https://www.linkedin.com/in/maithil-mehta-35a603171/}{LinkedIn : Maithil Mehta}& Mobile :  +91 7738683390 \\
+% \end{tabular*}
+\begin{center}
+    {\Large \textbf{Maithil Rupesh Mehta}}
+\end{center}
+\vspace{-1.425em}
+\begin{center}
+    \href{mailto:mmehta28@wisc.edu}{mmehta28@wisc.edu} \textbar{} +1 (608) 509-3112 \textbar{} \href{https://www.linkedin.com/in/maithil-rupesh-mehta-35a603171/}{Linkedin} \textbar{} \href{https://github.com/maithil22}{Github}
+\end{center}
+\vspace{-3pt}
+    
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {University of Wisconsin-Madison \textbar{} CGPA: 4.00/4.00}{Madison, Wisconsin}
+      {\textbf{Master of Science in Computer Science}}{September 2025 -- May 2027}
+      
+      {\small \textit{Relevant Coursework: Distributed Systems, Foundational Models, Machine Learning, Big Data}}
+    \resumeSubheading
+      {Birla Institute of Technology and Science, Pilani \textbar{} CGPA: 8.29/10.00}{Pilani, India}
+      {\textbf{Bachelor of Engineering in Computer Science, Minor in Data Science}}{August 2018 -- May 2022}
+      
+      {\small \textit{Relevant Coursework: Data Structures and Algorithms, Object Oriented Programming, Database Systems, Operating Systems}
+      
+  \resumeSubHeadingListEnd
+
+%-----------Technical Skills-----------------
+\section{Technical Skills}
+\resumeSubHeadingListStart
+  \resumeSubItem{Programming Languages}{Python, Java, C++, C, JavaScript, TypeScript, SQL}
+  \resumeSubItem{Web Technologies}{HTML, CSS, Node.js, REST APIs, gRPC}
+  \resumeSubItem{Machine Learning \& Data Science}{TensorFlow, Keras, Scikit-learn, Pandas, NumPy, OpenCV, Matplotlib, Seaborn}
+  \resumeSubItem{Databases \& Big Data}{MySQL, MongoDB, HBase, Cassandra, BigQuery, Spark, Kafka, HDFS, PyArrow}
+  \resumeSubItem{DevOps \& Tools}{Git, Docker, Kubernetes, Linux, Bash}
+  \resumeSubItem{Software Engineering Practices}{Agile, CI/CD, Unit Testing}
+\resumeSubHeadingListEnd \vspace{5pt}
+  
+%-----------EXPERIENCE-----------------
+\section{Work Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {The D. E. Shaw Group}{Hyderabad, India}
+      {Senior Member Technical, Investor Relations}{July 2022 -- June 2025}
+        \begin{itemize}[leftmargin=*,noitemsep]
+            \item Built a scalable, modular \textbf{Python ETL framework} to consolidate global investor information from diverse sources, creating a unified data warehouse powering multiple dashboards.
+            \item Implemented \textbf{custom bitemporal versioning in SQL} to track historical investor attributes across 10 million records, ensuring data integrity.
+            \item Developed a \textbf{centralized React dashboard} aggregating analytics for 50+ Relationship Managers, cutting manual data reconciliation from 5 days to under 5 minutes.
+            \item Optimized backend queries with distributed memory caching, added validation layers, and automated workflows, driving a 2.5× increase in user adoption.
+      \end{itemize}
+    \vspace{-0.75em} 
+    \resumeSubheading
+      {Amazon.com, Inc.}{Hyderabad, India}
+      {Software Development Engineering Intern, Finance Automation}{February 2022 -- June 2022}
+      \begin{itemize}[leftmargin=*,noitemsep]
+        \item Automated discrepancy detection in vendor invoices by building tools in \textbf{JavaScript} and \textbf{Ruby on Rails} to surface edge cases in financial workflows, reducing manual review by 35\%.
+        \item Led migration of critical finance APIs in \textbf{Java} from on-premises infrastructure to native \textbf{AWS}, cutting operational overhead and lowering maintenance costs by 25\%.
+      \end{itemize}
+    \vspace{-0.75em} 
+    \resumeSubheading
+      {Salesforce, Inc.}{Hyderabad, India}
+      {Software Engineering Intern, Big Data Cloud}{June 2021 -- July 2021}
+      \begin{itemize}[leftmargin=*,noitemsep]
+        \item Built a multithreaded \textbf{Python} library to poll deployment metrics across data center nodes, tracking rollout types and per-node success/failure.
+        \item Integrated the library with dashboards and alerting systems, enabling early anomaly detection and cutting deployment issue resolution time by 30\%.
+      \end{itemize}
+  \resumeSubHeadingListEnd
+
+%-----------Projects-----------------
+\section{Projects/Achievements}
+  \projectSubHeadingListStart
+    \projectSubItem{Salesforce Intern Hackathon - Winner [\href{https://drive.google.com/file/d/19IU5DIvpNQktDLeBlNklmGnFKgcGm2Ei/view?usp=sharing}{Demo}]}\\
+      \begin{itemize}[leftmargin=*,noitemsep,topsep=0.5em] \normalsize
+        \item Conceptualized and developed a computer vision-based two-factor authentication (2FA) system in \textbf{Python} using \textbf{OpenCV} and \textbf{TensorFlow}, eliminating reliance on external hardware or mobile tokens.
+        \item Engineered a secure facial recognition module with reflected light-based liveness detection to mitigate spoofing attempts, including deepfake and photo attacks.
+      \end{itemize}
+    \vspace{-10pt}
+    \projectSubItem{Enhanced CNN-Based Detection of Leaf Diseases Using
+ Segmentation and CLAHE [\href{https://drive.google.com/file/d/1NfUtjMJ2xLereFxBjWSBYTnUjVWt2WAf/view?usp=sharing}{Paper}, \href{https://github.com/maithil22/leaf_disease_detection}{Github}]}\\
+        \begin {itemize}[leftmargin=*,noitemsep,topsep=0.5em] \normalsize
+            \item Enhanced plant leaf image contrast under the guidance of \href{https://scholar.google.com/citations?user=puTDrJkAAAAJ&hl=en}{Prof. Mukesh Kumar Rohil} using Contrast Limited Adaptive Histogram Equalization (CLAHE) in \textbf{OpenCV} on the luminance channel to improve feature extraction.
+            \item Built and trained models in \textbf{Keras} on the augmented PlantVillage dataset to classify 38 plant diseases, benchmarking against a modified VGG-16 with CLAHE and segmentation for faster convergence.
+            \item Achieved 98.5\% accuracy, comparable to AlexNet, validating the effectiveness of the approach.
+        \end{itemize}
+    \projectSubItem{Fake News Detection on Social Media using Geometric Deep Learning}\\
+        \begin {itemize}[leftmargin=*,noitemsep,topsep=0.5em] \normalsize
+            \item Implemented a Graph Neural Network to classify news as fake or real based on its propagation in the network, independent of the content of the shared URLs.
+            \item Demonstrated that news propagation-based approaches can complement content-based methods for fake news detection, and accurate detections can be made after∼7 hours of the start of spread.
+            \item Achieved a ROC AUC score of 91.7\% using the Kaggle Twitter dataset.
+        \end{itemize}
+    \projectSubItem{Performance Analysis of ALPS Serverless Scheduler via Google ghOSt [\href{https://drive.google.com/file/d/19-yoaXYyRrKn8xAtCDP5N8HJaWXGrBb6/view?usp=drive_link}{Paper}]}\\
+        \begin {itemize}[leftmargin=*,noitemsep,topsep=0.5em] \normalsize
+            \item Developed a custom implementation of the ALPS (Adaptive Learning, Priority Scheduler) policy using the Google ghOSt userspace framework on CloudLab (Intel Xeon Gold) to decouple scheduling logic from the kernel.
+            \item Conducted mixed-workload microbenchmarking to evaluate SRPT-based scheduling, identifying a critical "blind spot" where I/O-bound tasks induce starvation for concurrent CPU-bound functions, increasing their tail latency by 15\% compared to the Linux CFS baseline.
+        \end{itemize}
+    \vspace{-10pt}
+    \projectSubItem{eBPF-Driven Analysis of the Linux Completely Fair Scheduler (CFS) Performance}\\
+      \begin{itemize}[leftmargin=*,noitemsep,topsep=0.5em] \normalsize
+        \item Engineered low-latency systems analysis by leveraging eBPF/bpftrace to directly instrument and trace the core scheduling logic within the Linux kernel function $pick\_next\_task\_fair()$
+        \item Validated the CFS's proportional fairness mechanism by measuring the virtual runtime (vruntime) differential across three priority levels, confirming that the highest-priority process (nice -15) received the longest time slices (smallest vruntime change of 0.7 billion ns).
+      \end{itemize}
+  \projectSubHeadingListEnd
+\end{document}
