@@ -1,6 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+} from "framer-motion";
 
 interface Role {
   company: string;
@@ -12,15 +18,24 @@ interface Role {
 
 const roles: Role[] = [
   {
+    company: "MathWorks",
+    location: "Natick, MA",
+    title: "Software Engineering Intern",
+    period: "May 2026 – Aug 2026",
+    bullets: [
+      "Built an autonomous LLM agent for a 50TB infrastructure data warehouse, using MCP tool-calling and schema-driven APIs to translate natural language into validated queries across 45+ endpoints.",
+      "Engineered the agent's reasoning framework for multi-step planning, parameter extraction, and sequential/parallel API workflows, with caching, validation, and enterprise SSO for safe data access.",
+    ],
+  },
+  {
     company: "The D. E. Shaw Group",
     location: "Hyderabad, India",
     title: "Senior Member Technical — Investor Relations",
     period: "Jul 2022 – Jun 2025",
     bullets: [
-      "Built a scalable, modular Python ETL framework to consolidate global investor information from diverse sources, creating a unified data warehouse powering multiple dashboards.",
-      "Implemented custom bitemporal versioning in SQL to track historical investor attributes across 10 million records, ensuring data integrity.",
-      "Developed a centralized React dashboard aggregating analytics for 50+ Relationship Managers, cutting manual data reconciliation from 5 days to under 5 minutes.",
-      "Optimized backend queries with distributed memory caching, added validation layers, and automated workflows, driving a 2.5× increase in user adoption.",
+      "Architected a data platform with temporal modeling (Python, SQL) over 100M+ records, delivering a 2.5× growth in active platform usage through optimized query pipelines and automated validation workflows.",
+      "Shipped a React full-stack Language-to-Visualization tool used by 100+ stakeholders, enabling natural language-driven analytical plot generation and eliminating dependency on analyst intermediaries for ad-hoc reporting.",
+      "Reduced data validation turnaround from days to hours by engineering automated anomaly detection and reconciliation pipelines across multiple upstream data feeds.",
     ],
   },
   {
@@ -29,8 +44,8 @@ const roles: Role[] = [
     title: "Software Development Engineering Intern — Finance Automation",
     period: "Feb 2022 – Jun 2022",
     bullets: [
-      "Automated discrepancy detection in vendor invoices using JavaScript and Ruby on Rails to surface edge cases in financial workflows, reducing manual review by 35%.",
-      "Led migration of critical finance APIs in Java from on-premises infrastructure to native AWS, cutting operational overhead and lowering maintenance costs by 25%.",
+      "Reduced manual finance review effort by 35% by building JavaScript and Ruby on Rails tooling that automatically surfaced edge-case discrepancies in vendor invoice workflows across high-volume transaction data.",
+      "Cut operational maintenance costs by 25% by leading migration of critical finance APIs from on-premises Java infrastructure to native AWS, improving reliability and reducing deployment overhead.",
     ],
   },
   {
@@ -39,17 +54,76 @@ const roles: Role[] = [
     title: "Software Engineering Intern — Big Data Cloud",
     period: "Jun 2021 – Jul 2021",
     bullets: [
-      "Built a multithreaded Python library to poll deployment metrics across data center nodes, tracking rollout types and per-node success/failure.",
-      "Integrated the library with dashboards and alerting systems, enabling early anomaly detection and cutting deployment issue resolution time by 30%.",
+      "Slashed incident resolution time by 30% by building a multithreaded Python library for real-time deployment metric tracking across distributed data centers, with integrated alerting and anomaly detection.",
+      "Won the company-wide intern hackathon (competing against 200+ interns) by engineering a computer-vision-based 2FA liveness verification system using OpenCV and TensorFlow.",
     ],
   },
 ];
 
+function RoleCard({ role, index }: { role: Role; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const amp = shouldReduceMotion ? 0 : 1;
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.9", "start 0.35"],
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], [-36 * amp, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.15, 1]);
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ x, opacity }}
+      className="relative overflow-hidden border-2 border-paper p-6"
+    >
+      <span
+        className="pointer-events-none absolute -right-2 -top-6 select-none font-display text-8xl font-bold text-paper/[0.06]"
+        aria-hidden
+      >
+        {String(index + 1).padStart(2, "0")}
+      </span>
+
+      <div className="relative flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <p className="font-semibold text-paper">{role.company}</p>
+          <p className="text-sm text-paper/70">{role.title}</p>
+        </div>
+        <div className="text-left sm:text-right">
+          <p className="border-2 border-accent bg-accent/10 px-2 py-0.5 font-mono text-xs font-medium text-accent">
+            {role.period}
+          </p>
+          <p className="mt-1 font-mono text-xs text-paper/50">
+            {role.location}
+          </p>
+        </div>
+      </div>
+
+      <ul className="relative mt-4 flex flex-col gap-2">
+        {role.bullets.map((bullet, j) => (
+          <li key={j} className="flex gap-2 text-sm text-paper/70">
+            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-accent" />
+            {bullet}
+          </li>
+        ))}
+      </ul>
+    </motion.div>
+  );
+}
+
 export default function Experience() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: lineProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 0.75", "end 0.25"],
+  });
+
   return (
     <section
       id="experience"
-      className="py-24"
+      className="border-b-[3px] border-ink bg-ink py-24 text-paper"
       aria-labelledby="experience-heading"
     >
       <div className="mx-auto max-w-5xl px-6">
@@ -57,60 +131,32 @@ export default function Experience() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
+          transition={{ duration: 0.5 }}
+          className="mb-12 flex items-end justify-between border-b-[3px] border-paper pb-3"
         >
           <h2
             id="experience-heading"
-            className="text-2xl font-bold text-[#ededed] sm:text-3xl"
+            className="font-display text-3xl font-bold uppercase tracking-tight text-paper sm:text-4xl"
           >
             Experience
           </h2>
-          <div className="mt-2 h-px w-12 bg-[#6366f1]" />
+          <span className="font-mono text-sm text-paper/60">02 / 04</span>
         </motion.div>
 
-        <div className="relative flex flex-col gap-0">
-          {/* Vertical timeline line */}
-          <div className="absolute left-[7px] top-2 hidden h-[calc(100%-2rem)] w-px bg-white/10 md:block" />
+        <div ref={containerRef} className="relative flex flex-col gap-6 pl-6 md:pl-10">
+          {/* Track */}
+          <div
+            className="absolute left-0 top-1 hidden h-[calc(100%-0.5rem)] w-[3px] bg-paper/15 md:block"
+            aria-hidden
+          />
+          <motion.div
+            className="absolute left-0 top-1 hidden h-[calc(100%-0.5rem)] w-[3px] bg-accent md:block"
+            style={{ scaleY: lineProgress, transformOrigin: "top" }}
+            aria-hidden
+          />
 
           {roles.map((role, i) => (
-            <motion.div
-              key={role.company}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative mb-10 md:pl-8"
-            >
-              {/* Timeline dot */}
-              <div className="absolute left-0 top-1.5 hidden h-3.5 w-3.5 rounded-full border-2 border-[#6366f1] bg-[#0a0a0a] md:block" />
-
-              <div className="rounded-xl border border-white/10 bg-[#111111] p-5">
-                <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
-                  <div>
-                    <p className="font-semibold text-[#ededed]">
-                      {role.company}
-                    </p>
-                    <p className="text-sm text-[#888888]">{role.title}</p>
-                  </div>
-                  <div className="text-left sm:text-right">
-                    <p className="text-xs font-medium text-[#6366f1]">
-                      {role.period}
-                    </p>
-                    <p className="text-xs text-[#888888]">{role.location}</p>
-                  </div>
-                </div>
-
-                <ul className="mt-4 flex flex-col gap-2">
-                  {role.bullets.map((bullet, j) => (
-                    <li key={j} className="flex gap-2 text-sm text-[#888888]">
-                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#6366f1]" />
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
+            <RoleCard key={role.company} role={role} index={i} />
           ))}
         </div>
       </div>

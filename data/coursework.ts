@@ -475,4 +475,495 @@ export const coursework: CourseEntry[] = [
     semester: "Fall 2025",
     tags: ["SVM", "Kernels", "PAC Learning", "Language Models", "Transfer Learning"],
   },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // CS 739 — Distributed Systems  (Spring 2026)
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    id: "ds-p1-dsd-tutorial",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Distributed System Design (Tutorial)",
+    authors: "Google Code University",
+    venue: "Course Background Reading",
+    description:
+      "Introductory tutorial covering the fundamental building blocks of distributed system design — communication, state, time, and failure — used as background framing before the primary research-paper readings for the course.",
+    semester: "Spring 2026",
+    tags: ["Background", "Tutorial", "Distributed Systems"],
+  },
+  {
+    id: "ds-p2-rpc",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Implementing Remote Procedure Calls",
+    authors: "Andrew D. Birrell, Bruce Jay Nelson",
+    year: 1984,
+    venue: "ACM Trans. Comput. Syst. 2(1):39-59 — SIGOPS Hall of Fame",
+    description:
+      "Introduces RPC as a programming abstraction that lets a client invoke a procedure on a remote server as if it were a local call, hiding marshalling, transport, and binding behind generated stubs. Establishes the client-stub/server-stub architecture and partial-failure semantics that most RPC frameworks — including gRPC — still follow.",
+    semester: "Spring 2026",
+    tags: ["RPC", "Communication", "Stubs", "Classic"],
+  },
+  {
+    id: "ds-p3-why-computers-stop",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Why Do Computers Stop And What Can Be Done About It?",
+    authors: "Jim Gray",
+    year: 1985,
+    venue: "HP Labs Technical Report TR-85.7 — SIGOPS Hall of Fame",
+    description:
+      "Analyzes real outage data from Tandem's fault-tolerant systems and finds software bugs and operator error — not hardware — dominate downtime causes. Argues for 'fail-fast' software modules and process-pair recovery as the practical path to high availability.",
+    semester: "Spring 2026",
+    tags: ["Fault Tolerance", "Availability", "Failures", "Classic"],
+  },
+  {
+    id: "ds-p4-redundancy-not-fault-tolerance",
+    course: "Distributed Systems",
+    type: "paper",
+    title:
+      "Redundancy Does Not Imply Fault Tolerance: Analysis of Distributed Storage Reactions to Single Errors and Corruptions",
+    authors:
+      "Aishwarya Ganesan, Ramnatthan Alagappan, Andrea C. Arpaci-Dusseau, Remzi H. Arpaci-Dusseau",
+    year: 2017,
+    venue: "FAST '17",
+    description:
+      "Injects single disk errors and corruptions into eight widely-used distributed storage systems and finds redundancy alone doesn't guarantee fault tolerance — many systems propagate one local fault into cluster-wide failure or silent data loss through unsafe error handling in the replication layer.",
+    semester: "Spring 2026",
+    tags: ["Fault Injection", "Storage", "Redundancy", "Testing"],
+  },
+  {
+    id: "ds-p5-role-of-distributed-state",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "The Role of Distributed State",
+    authors: "John Ousterhout",
+    year: 1991,
+    description:
+      "Surveys the tradeoffs of keeping state at clients versus servers in distributed file systems, arguing that client-side caching is essential for performance but introduces consistency and crash-recovery challenges that shaped NFS and its successors.",
+    semester: "Spring 2026",
+    tags: ["NFS", "Client State", "Caching", "File Systems"],
+  },
+  {
+    id: "ds-p6-nfsv2",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Design and Implementation of the Sun Network Filesystem",
+    authors: "Russel Sandberg, David Goldberg, Steve Kleiman, Dan Walsh, Bob Lyon",
+    year: 1985,
+    venue: "USENIX Summer 1985",
+    description:
+      "Describes the original stateless NFS protocol built on Sun RPC and XDR, where the server holds no per-client session state and idempotent operations enable simple crash recovery — trading strict consistency for statelessness and cross-vendor interoperability.",
+    semester: "Spring 2026",
+    tags: ["NFS", "Stateless", "RPC", "File Systems"],
+  },
+  {
+    id: "ds-p7-nfsv3",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "NFS Version 3: Design and Implementation",
+    authors:
+      "Brian Pawlowski, Chet Juszczak, Peter Staubach, Carl Smith, Diane Lebel, Dave Hitz",
+    year: 1994,
+    venue: "USENIX Summer 1994",
+    description:
+      "Extends NFSv2 with 64-bit file sizes, asynchronous writes with a commit protocol, and weak cache consistency (WCC) attributes, addressing the performance ceilings stateless NFSv2 hit as networks and files grew larger.",
+    semester: "Spring 2026",
+    tags: ["NFS", "Weak Cache Consistency", "File Systems"],
+  },
+  {
+    id: "ds-p8-nfsv4",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "The NFS Version 4 Protocol",
+    authors:
+      "Brian Pawlowski, Spencer Shepler, Carl Beame, Brent Callaghan, Michael Eisler, David Noveck, David Robinson, Robert Thurlow",
+    year: 2000,
+    venue: "SANE 2000",
+    description:
+      "Reworks NFS as a stateful, compound-operation protocol with integrated locking, delegation (client-side caching leases), and strong security (RPCSEC_GSS) — moving away from earlier statelessness to support internet-scale, firewall-crossing deployments.",
+    semester: "Spring 2026",
+    tags: ["NFS", "Statefulness", "Delegation", "Security"],
+  },
+  {
+    id: "ds-p9-afs",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Scale and Performance in a Distributed File System",
+    authors:
+      "John H. Howard, Michael L. Kazar, Sherri G. Menees, David A. Nichols, M. Satyanarayanan, Robert N. Sidebotham, Michael J. West",
+    year: 1988,
+    venue: "ACM TOCS 6(1):51-81 — SIGOPS Hall of Fame",
+    description:
+      "Presents AFS's whole-file client caching with callbacks — servers notify clients when a cached file changes rather than clients polling — cutting server load and letting AFS scale to thousands of clients per server, a stark contrast to NFS's stateless design.",
+    semester: "Spring 2026",
+    tags: ["AFS", "Callbacks", "Caching", "Scalability"],
+  },
+  {
+    id: "ds-p10-coda",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Disconnected Operation in the Coda File System",
+    authors: "James J. Kistler, M. Satyanarayanan",
+    year: 1991,
+    venue: "SOSP '91 — SIGOPS Hall of Fame",
+    description:
+      "Extends AFS with disconnected operation: clients hoard copies of important files before disconnecting, operate entirely from local cache while offline, and reintegrate changes with conflict detection on reconnection — pioneering the offline-first model later used by Git and Dropbox.",
+    semester: "Spring 2026",
+    tags: ["Coda", "Disconnected Operation", "Mobile", "Conflict Resolution"],
+  },
+  {
+    id: "ds-p11-lbfs",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "A Low-Bandwidth Network File System",
+    authors: "Athicha Muthitacharoen, Benjie Chen, David Mazieres",
+    year: 2001,
+    venue: "SOSP '01",
+    description:
+      "Exploits cross-file similarity by chunking files at content-defined boundaries and caching chunks client-side, so LBFS only ships bytes that actually changed — enabling file-system semantics over slow WAN links at close to LAN speed for typical workloads.",
+    semester: "Spring 2026",
+    tags: ["LBFS", "Bandwidth", "Chunking", "WAN"],
+  },
+  {
+    id: "ds-p12-leases",
+    course: "Distributed Systems",
+    type: "paper",
+    title:
+      "Leases: An Efficient Fault-Tolerant Mechanism for Distributed File Cache Consistency",
+    authors: "Cary G. Gray, David R. Cheriton",
+    year: 1989,
+    venue: "SOSP '89 — SIGOPS Hall of Fame",
+    description:
+      "Introduces leases — time-bounded promises of cache validity — as a middle ground between expensive synchronous invalidation and stale caching. A server can safely assume a crashed client's cache is invalid once its lease expires, decoupling correctness from clients staying alive.",
+    semester: "Spring 2026",
+    tags: ["Leases", "Cache Consistency", "Fault Tolerance"],
+  },
+  {
+    id: "ds-p13-lamport-clocks",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Time, Clocks, and the Ordering of Events in a Distributed System",
+    authors: "Leslie Lamport",
+    year: 1978,
+    venue: "Communications of the ACM — SIGOPS Hall of Fame",
+    description:
+      "Defines the happens-before relation and logical (Lamport) clocks, showing a total ordering of events consistent with causality can be derived without synchronized physical clocks — the foundation under vector clocks, snapshots, and modern consistency protocols.",
+    semester: "Spring 2026",
+    tags: ["Logical Clocks", "Causality", "Ordering", "Classic"],
+  },
+  {
+    id: "ds-p14-chandy-lamport-snapshots",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Distributed Snapshots: Determining Global States of Distributed Systems",
+    authors: "K. Mani Chandy, Leslie Lamport",
+    year: 1985,
+    venue: "ACM TOCS 3(1):63-75 — SIGOPS Hall of Fame",
+    description:
+      "Presents the Chandy-Lamport algorithm for capturing a consistent global snapshot of a distributed system's state using marker messages on FIFO channels, without stopping the system — a building block for checkpointing, deadlock detection, and protocol debugging.",
+    semester: "Spring 2026",
+    tags: ["Snapshots", "Global State", "Checkpointing"],
+  },
+  {
+    id: "ds-p15-state-machine-replication",
+    course: "Distributed Systems",
+    type: "paper",
+    title:
+      "Implementing Fault-Tolerant Services Using the State Machine Approach: A Tutorial",
+    authors: "Fred B. Schneider",
+    year: 1990,
+    venue: "ACM Comput. Surv. 22(4):299-319 — SIGOPS Hall of Fame",
+    description:
+      "Formalizes replicated state machines: if every replica starts in the same state and applies the same deterministic operations in the same order, all replicas stay consistent. Lays out the agreement/order properties underlying Paxos, Raft, and Chain Replication alike.",
+    semester: "Spring 2026",
+    tags: ["State Machine Replication", "Fault Tolerance", "Tutorial", "Classic"],
+  },
+  {
+    id: "ds-p16-ha-nfs",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "A Highly Available Network File Server",
+    authors: "Anupam K. Bhide, Elmootazbellah N. Elnozahy, Stephen P. Morgan",
+    year: 1991,
+    venue: "USENIX Winter 1991",
+    description:
+      "Describes a primary-backup NFS server design where a backup shadows the primary's disk writes over a dedicated link and takes over transparently on failure, restoring client sessions from replicated state — a concrete early instance of primary-backup replication in a production file server.",
+    semester: "Spring 2026",
+    tags: ["Primary-Backup", "High Availability", "NFS"],
+  },
+  {
+    id: "ds-p17-remus",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Remus: High Availability via Asynchronous Virtual Machine Replication",
+    year: 2008,
+    venue: "NSDI '08",
+    description:
+      "Provides transparent, whole-VM high availability by continuously checkpointing a running VM's memory and device state to a backup host dozens of times per second, buffering outbound network traffic until each checkpoint is safely replicated.",
+    semester: "Spring 2026",
+    tags: ["Virtualization", "Checkpointing", "High Availability"],
+  },
+  {
+    id: "ds-p18-chain-replication",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Chain Replication for Supporting High Throughput and Availability",
+    authors: "Robbert van Renesse, Fred B. Schneider",
+    year: 2004,
+    venue: "OSDI '04",
+    description:
+      "Arranges replicas in a chain where writes flow head-to-tail and reads are served from the tail, guaranteeing strong consistency with lower coordination overhead than quorum-based protocols, at the cost of write latency proportional to chain length.",
+    semester: "Spring 2026",
+    tags: ["Chain Replication", "Strong Consistency", "Throughput"],
+  },
+  {
+    id: "ds-p19-leopard-serverless",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Making Serverless Pay-For-Use a Reality with Leopard",
+    authors:
+      "Tingjia Cao, Andrea C. Arpaci-Dusseau, Remzi H. Arpaci-Dusseau, Tyler Caraza-Harter",
+    year: 2025,
+    venue: "NSDI '25",
+    description:
+      "Identifies that serverless platforms often bill for idle/reserved capacity that doesn't reflect actual use, and proposes scheduling and resource-accounting changes so serverless billing tracks real consumption without sacrificing cold-start latency.",
+    semester: "Spring 2026",
+    tags: ["Serverless", "Scheduling", "Cloud", "Billing"],
+  },
+  {
+    id: "ds-p20-paxos-made-simple",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Paxos Made Simple",
+    authors: "Leslie Lamport",
+    year: 2001,
+    venue: "ACM SIGACT News",
+    description:
+      "Lamport's own accessible rewrite of 'The Part-Time Parliament,' deriving the Paxos consensus protocol from first principles: a two-phase prepare/accept protocol letting a majority of replicas agree on a single value despite failures and asynchronous delays.",
+    semester: "Spring 2026",
+    tags: ["Paxos", "Consensus", "Classic"],
+  },
+  {
+    id: "ds-p21-raft",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "In Search of an Understandable Consensus Algorithm (Extended Version)",
+    authors: "Diego Ongaro, John Ousterhout",
+    year: 2014,
+    venue: "USENIX ATC '14",
+    description:
+      "Designs Raft explicitly for understandability, decomposing consensus into leader election, log replication, and safety, with the invariant that logs never contain conflicting entries at the same index. Became the de facto consensus protocol behind etcd, Consul, and CockroachDB.",
+    semester: "Spring 2026",
+    tags: ["Raft", "Consensus", "Leader Election", "Log Replication"],
+  },
+  {
+    id: "ds-p22-chubby",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "The Chubby Lock Service for Loosely-Coupled Distributed Systems",
+    authors: "Mike Burrows",
+    year: 2006,
+    venue: "OSDI '06 — SIGOPS Hall of Fame",
+    description:
+      "Describes Google's Chubby, a coarse-grained distributed lock service built on Paxos that applications use for leader election and small amounts of highly-available metadata — not for high-throughput coordination — establishing the pattern later followed by Zookeeper and etcd.",
+    semester: "Spring 2026",
+    tags: ["Chubby", "Locking", "Coordination", "Paxos"],
+  },
+  {
+    id: "ds-p23-zookeeper",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "ZooKeeper: Wait-free Coordination for Internet-scale Systems",
+    authors: "Patrick Hunt, Mahadev Konar, Flavio Paiva Junqueira, Benjamin Reed",
+    year: 2010,
+    venue: "USENIX ATC '10",
+    description:
+      "Presents ZooKeeper's wait-free coordination API — a hierarchical namespace of znodes with watches — built on the Zab atomic broadcast protocol, optimized for read-heavy coordination workloads like configuration, group membership, and leader election.",
+    semester: "Spring 2026",
+    tags: ["Zookeeper", "Coordination", "Zab", "Watches"],
+  },
+  {
+    id: "ds-p24-epaxos",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "There Is More Consensus in Egalitarian Parliaments",
+    authors: "Iulian Moraru, David G. Andersen, Michael Kaminsky",
+    year: 2013,
+    venue: "SOSP '13",
+    description:
+      "Removes the single-leader bottleneck from Paxos by letting any replica propose commands and using per-command dependency tracking to order only conflicting commands — achieving lower latency in wide-area, multi-datacenter deployments where a fixed leader is far from most clients.",
+    semester: "Spring 2026",
+    tags: ["EPaxos", "Leaderless Consensus", "Wide-Area"],
+  },
+  {
+    id: "ds-p25-consistency-baseball",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Replicated Data Consistency Explained Through Baseball",
+    authors: "Douglas B. Terry",
+    year: 2013,
+    venue: "Communications of the ACM",
+    description:
+      "Uses baseball scoreboards and stat-tracking as an intuitive lens for the spectrum of consistency models — from strong to eventual to session guarantees like read-your-writes and monotonic reads — making an otherwise abstract taxonomy concrete.",
+    semester: "Spring 2026",
+    tags: ["Consistency Models", "Overview", "Eventual Consistency"],
+  },
+  {
+    id: "ds-p26-bayou",
+    course: "Distributed Systems",
+    type: "paper",
+    title:
+      "Managing Update Conflicts in Bayou, a Weakly Connected Replicated Storage System",
+    authors:
+      "Douglas B. Terry, Marvin M. Theimer, Karin Petersen, Alan J. Demers, Mike J. Spreitzer, Carl H. Hauser",
+    year: 1995,
+    venue: "SOSP '95 — SIGOPS Hall of Fame",
+    description:
+      "Bayou lets replicas accept writes while disconnected and reconcile later using application-specific merge procedures and dependency checks, with a designated primary that later commits a stable, agreed-upon total order — an early, thoughtful take on optimistic, conflict-tolerant replication.",
+    semester: "Spring 2026",
+    tags: ["Bayou", "Conflict Resolution", "Weak Connectivity", "Optimistic Replication"],
+  },
+  {
+    id: "ds-p27-existential-consistency",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Existential Consistency: Measuring and Understanding Consistency at Facebook",
+    authors:
+      "Haonan Lu, Kaushik Veeraraghavan, Philippe Ajoux, Jim Hunt, Yee Jiun Song, Wendy Tobagus, Sanjeev Kumar, Wyatt Lloyd",
+    year: 2015,
+    venue: "SOSP '15",
+    description:
+      "Measures real production staleness and anomaly rates in Facebook's TAO storage stack at scale, finding violations of stronger consistency guarantees are rare in practice — motivating 'existential consistency,' a probabilistic framing of how consistent a system actually behaves.",
+    semester: "Spring 2026",
+    tags: ["Consistency Models", "Production Measurement", "Facebook", "TAO"],
+  },
+  {
+    id: "ds-p28-linearizability-ramcloud",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Implementing Linearizability at Large Scale and Low Latency",
+    authors: "Collin Lee, Seo Jin Park, Ankita Kejriwal, Satoshi Matsushita, John Ousterhout",
+    year: 2015,
+    venue: "SOSP '15",
+    description:
+      "Shows linearizability — the strongest single-object consistency guarantee — doesn't have to be slow: RAMCloud implements it with client-assigned RPC identifiers and server-side dedup logs, adding microsecond-scale overhead instead of the round-trip cost typically assumed necessary for exactly-once semantics.",
+    semester: "Spring 2026",
+    tags: ["Linearizability", "RAMCloud", "Low Latency", "Exactly-Once"],
+  },
+  {
+    id: "ds-p29-occult",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "I Can't Believe It's Not Causal! Scalable Causal Consistency with No Slowdown Cascades",
+    authors:
+      "Syed Akbar Mehdi, Cody Littley, Natacha Crooks, Lorenzo Alvisi, Nathan Bronson, Wyatt Lloyd",
+    year: 2017,
+    venue: "NSDI '17",
+    description:
+      "Identifies 'slowdown cascades' — where one slow replica forces every replica tracking its dependencies to also slow down — as a hidden cost of prior causally-consistent systems, and designs a version-vector compression scheme that guarantees causal consistency without inheriting a slow replica's latency.",
+    semester: "Spring 2026",
+    tags: ["Causal Consistency", "Occult", "Slowdown Cascades"],
+  },
+  {
+    id: "ds-p30-nilext",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Exploiting Nil-Externality for Fast Replicated Storage",
+    authors:
+      "Aishwarya Ganesan, Ramnatthan Alagappan, Andrea C. Arpaci-Dusseau, Remzi H. Arpaci-Dusseau",
+    year: 2021,
+    venue: "SOSP '21",
+    description:
+      "Observes that many operations issued to replicated storage are never externalized (the client crashes or never checks the result), and exploits this 'nil-externality' to safely skip synchronous replication for such operations — cutting write latency without weakening the guarantees clients actually observe.",
+    semester: "Spring 2026",
+    tags: ["Replication", "Latency", "Nil-Externality"],
+  },
+  {
+    id: "ds-p31-gfs",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "The Google File System",
+    authors: "Sanjay Ghemawat, Howard Gobioff, Shun-Tak Leung",
+    year: 2003,
+    venue: "SOSP '03 — SIGOPS Hall of Fame",
+    description:
+      "Describes GFS's design for storing massive files across thousands of commodity machines: a single master holding metadata, large 64MB chunks replicated three ways, and a relaxed consistency model trading strict correctness for the throughput Google's batch workloads like MapReduce needed.",
+    semester: "Spring 2026",
+    tags: ["GFS", "Distributed Storage", "Master-Chunk", "Classic"],
+  },
+  {
+    id: "ds-p32-dynamo",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Dynamo: Amazon's Highly Available Key-Value Store",
+    authors:
+      "Giuseppe DeCandia, Deniz Hastorun, Madan Jampani, Gunavardhan Kakulapati, Avinash Lakshman, Alex Pilchin, Swaminathan Sivasubramanian, Peter Vosshall, Werner Vogels",
+    year: 2007,
+    venue: "SOSP '07 — SIGOPS Hall of Fame",
+    description:
+      "Prioritizes availability over consistency for Amazon's shopping cart: consistent hashing distributes keys across nodes, sloppy quorums and hinted handoff tolerate node/network failures, and vector clocks let application logic resolve conflicting versions rather than the store rejecting writes.",
+    semester: "Spring 2026",
+    tags: ["Dynamo", "Eventual Consistency", "Consistent Hashing", "Vector Clocks"],
+  },
+  {
+    id: "ds-p33-bigtable",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Bigtable: A Distributed Storage System for Structured Data",
+    authors:
+      "Fay Chang, Jeffrey Dean, Sanjay Ghemawat, Wilson C. Hsieh, Deborah A. Wallach, Mike Burrows, Tushar Chandra, Andrew Fikes, Robert E. Gruber",
+    year: 2006,
+    venue: "OSDI '06 — SIGOPS Hall of Fame",
+    description:
+      "Presents Bigtable's sparse, sorted, multi-dimensional map abstraction (row key, column key, timestamp) built atop GFS and Chubby, with automatic sharding via tablets — the design that directly inspired HBase and the wide-column NoSQL model still used industry-wide.",
+    semester: "Spring 2026",
+    tags: ["Bigtable", "Wide-Column", "GFS", "Chubby"],
+  },
+  {
+    id: "ds-p34-spanner",
+    course: "Distributed Systems",
+    type: "paper",
+    title: "Spanner: Google's Globally Distributed Database",
+    authors:
+      "James C. Corbett, Jeffrey Dean, Michael Epstein, Andrew Fikes, Christopher Frost, J. J. Furman, Sanjay Ghemawat, Andrey Gubarev, Christopher Heiser, Peter Hochschild, Wilson Hsieh, Sebastian Kanthak, Eugene Kogan, Hongyi Li, Alexander Lloyd, Sergey Melnik, David Mwaura, David Nagle, Sean Quinlan, Rajesh Rao, Lindsay Rolig, Yasushi Saito, Michal Szymaniak, Christopher Taylor, Ruth Wang, Dale Woodford",
+    year: 2013,
+    venue: "ACM TOCS 31(3), Article 8",
+    description:
+      "Introduces TrueTime — an API exposing GPS/atomic-clock-bounded uncertainty intervals — letting Spanner assign globally-consistent timestamps to transactions and offer external consistency (linearizable, globally-ordered transactions) across datacenters, a guarantee previously thought impractical at this scale.",
+    semester: "Spring 2026",
+    tags: ["Spanner", "TrueTime", "External Consistency", "Global Database"],
+  },
+  {
+    id: "ds-proj1-qdrant-fault-tolerance",
+    course: "Distributed Systems",
+    type: "project",
+    title:
+      "Qdrant Fault-Tolerance Analysis: Replication Factor vs. Recall, Tail Latency, and MTTR",
+    description:
+      "Ran live fault injection (node kills and network partitions via iptables) against a 3-node Qdrant cluster on CloudLab to measure how replication factor affects Recall@10, p95/p99 tail latency, and mean time to recovery on the ANN-Benchmarks SIFT-128 dataset (1M vectors). Found a sharp RF=1→RF=2 reliability cliff — RF=1 produced a 31x p99 spike and 149 query errors, while RF=2 produced zero errors and even lower latency than baseline — and an RF=2→RF=3 plateau where the extra replica bought no additional resilience against single-node failures.",
+    links: {
+      github: "https://github.com/maithil22/qdrant_analysis",
+      paper: "https://drive.google.com/file/d/1UyIQl6APRZ4AMKVgnVSinDVmGhJlbQRQ/view?usp=sharing",
+    },
+    semester: "Spring 2026",
+    tags: ["Qdrant", "Fault Injection", "Raft", "Vector Database", "CloudLab", "Distributed Systems"],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // Foundational Models  (Spring 2026)
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    id: "fm-p1-talmas",
+    course: "Foundational Models",
+    type: "project",
+    title: "TALMAS: Training-Free Attention Suppression for Diffusion LMs",
+    description:
+      "Invented a training-free inference intervention for Masked Diffusion Models that suppresses [MASK] token noise via dynamic, asymmetric logit biasing, improving generation coherence on GSM8K and HumanEval with negligible O(n) overhead and no loss in parallel decoding speed.",
+    links: {
+      paper: "https://drive.google.com/file/d/13rlTpQ0mxyIQPQU5XFYPqKwRkCbfKxFY/view?usp=sharing",
+    },
+    semester: "Spring 2026",
+    tags: ["Diffusion Models", "LLM Inference", "Python", "GSM8K", "HumanEval"],
+  },
 ];

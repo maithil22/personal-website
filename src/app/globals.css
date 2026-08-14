@@ -1,18 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --surface: #111111;
-  --accent: #6366f1;
-  --muted: #888888;
-  --foreground: #ededed;
+  --paper: #f2efe6;
+  --ink: #111110;
+  --ink-soft: #55534a;
+  --line: #111110;
+  --accent: #ff4d1c;
+  --accent-ink: #111110;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-space-grotesk);
+}
+
+* {
+  border-radius: 0 !important;
 }
 
 html {
@@ -20,24 +28,56 @@ html {
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--paper);
+  color: var(--ink);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
+::selection {
+  background: var(--accent);
+  color: var(--ink);
+}
+
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: var(--paper);
+  border-left: 2px solid var(--ink);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 3px;
+  background: var(--ink);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--muted);
+  background: var(--accent);
+}
+
+/* Neubrutalist hard-shadow utilities */
+.brut-shadow {
+  box-shadow: 6px 6px 0 0 var(--ink);
+}
+
+.brut-shadow-sm {
+  box-shadow: 4px 4px 0 0 var(--ink);
+}
+
+.brut-shadow-paper {
+  box-shadow: 6px 6px 0 0 var(--paper);
+}
+
+.brut-press {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.brut-press:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 0 var(--ink);
+}
+
+.brut-press-sm:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 0 var(--ink);
 }

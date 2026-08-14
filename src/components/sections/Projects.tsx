@@ -17,22 +17,22 @@ export default function Projects() {
     active === "All" ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section id="projects" className="py-24" aria-labelledby="projects-heading">
+    <section id="projects" className="border-b-[3px] border-ink py-24" aria-labelledby="projects-heading">
       <div className="mx-auto max-w-5xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
+          transition={{ duration: 0.5 }}
+          className="mb-12 flex items-end justify-between border-b-[3px] border-ink pb-3"
         >
           <h2
             id="projects-heading"
-            className="text-2xl font-bold text-[#ededed] sm:text-3xl"
+            className="font-display text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl"
           >
             Projects
           </h2>
-          <div className="mt-2 h-px w-12 bg-[#6366f1]" />
+          <span className="font-mono text-sm text-ink-soft">03 / 04</span>
         </motion.div>
 
         {/* Filter bar */}
@@ -49,21 +49,14 @@ export default function Projects() {
             <button
               key={filter}
               onClick={() => setActive(filter)}
-              className={`relative rounded-lg px-4 py-1.5 text-sm font-medium transition-colors ${
+              className={`border-2 border-ink px-4 py-1.5 font-mono text-sm font-medium uppercase transition-colors ${
                 active === filter
-                  ? "text-[#ededed]"
-                  : "text-[#888888] hover:text-[#ededed]"
+                  ? "bg-ink text-paper"
+                  : "bg-paper text-ink hover:bg-ink/10"
               }`}
               aria-pressed={active === filter}
             >
-              {active === filter && (
-                <motion.span
-                  layoutId="filter-pill"
-                  className="absolute inset-0 rounded-lg bg-[#6366f1]/20 ring-1 ring-[#6366f1]/50"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
-              <span className="relative">{filter}</span>
+              {filter}
             </button>
           ))}
         </motion.div>
@@ -75,10 +68,10 @@ export default function Projects() {
               <motion.div
                 key={project.id}
                 layout
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.25 }}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.2 }}
               >
                 <ProjectCard project={project} />
               </motion.div>

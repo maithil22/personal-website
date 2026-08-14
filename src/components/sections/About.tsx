@@ -3,19 +3,62 @@
 import { motion } from "framer-motion";
 
 const skills: Record<string, string[]> = {
-  Languages: ["Python", "Java", "C++", "JavaScript", "TypeScript", "SQL"],
-  "ML & Data": [
+  Languages: [
+    "Python",
+    "Java",
+    "JavaScript",
+    "TypeScript",
+    "SQL",
+    "C++",
+    "C",
+    "Ruby",
+    "HTML",
+    "CSS",
+  ],
+  "Machine Learning & Data Science": [
+    "PyTorch",
     "TensorFlow",
     "Keras",
     "Scikit-learn",
-    "OpenCV",
     "Pandas",
     "NumPy",
+    "Matplotlib",
+    "OpenCV",
   ],
-  "Web & APIs": ["React", "Node.js", "REST APIs", "gRPC", "Next.js"],
-  Databases: ["MySQL", "MongoDB", "HBase", "Cassandra", "BigQuery"],
-  "Big Data": ["Spark", "Kafka", "HDFS", "PyArrow"],
-  DevOps: ["Docker", "Kubernetes", "Git", "Linux", "Bash"],
+  "Generative AI & LLMs": [
+    "HuggingFace Transformers",
+    "PEFT",
+    "RAG",
+    "Quantization",
+    "Diffusion Models",
+    "Prompt Engineering",
+  ],
+  "Big Data & Distributed Systems": [
+    "Spark",
+    "PyArrow",
+    "HBase",
+    "ChromaDB",
+    "Qdrant",
+    "Cassandra",
+    "Kafka",
+    "MySQL",
+    "MongoDB",
+  ],
+  "DevOps & Tools": [
+    "Git",
+    "Docker",
+    "Kubernetes",
+    "Linux",
+    "Bash/Shell",
+    "Node.js",
+    "gRPC",
+  ],
+  "Software Development Practices": [
+    "Agile",
+    "REST APIs",
+    "CI/CD",
+    "Unit Testing",
+  ],
 };
 
 const education = [
@@ -24,88 +67,97 @@ const education = [
     degree: "M.S. Computer Science",
     period: "Sep 2025 – May 2027",
     gpa: "4.0 / 4.0",
-    courses: "Distributed Systems, Foundational Models, ML, Big Data",
+    courses: "Machine Learning, Foundational Models, Distributed Systems, Big Data",
+    note: "Teaching Assistant — Data Management for Data Science",
   },
   {
     school: "BITS Pilani",
     degree: "B.E. Computer Science · Minor in Data Science",
     period: "Aug 2018 – May 2022",
     gpa: "8.29 / 10.0",
-    courses: "DSA, OOP, Database Systems, Operating Systems",
+    courses:
+      "Data Structures & Algorithms, Foundations of Data Science, Information Retrieval, Graph Mining",
   },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="py-24" aria-labelledby="about-heading">
+    <section id="about" className="border-b-[3px] border-ink py-24" aria-labelledby="about-heading">
       <div className="mx-auto max-w-5xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
+          transition={{ duration: 0.5 }}
+          className="mb-12 flex items-end justify-between border-b-[3px] border-ink pb-3"
         >
           <h2
             id="about-heading"
-            className="text-2xl font-bold text-[#ededed] sm:text-3xl"
+            className="font-display text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl"
           >
             About
           </h2>
-          <div className="mt-2 h-px w-12 bg-[#6366f1]" />
+          <span className="font-mono text-sm text-ink-soft">01 / 04</span>
         </motion.div>
 
         <div className="grid gap-12 md:grid-cols-2">
           {/* Bio + Education */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="flex flex-col gap-6"
           >
-            <p className="text-base leading-relaxed text-[#888888]">
+            <p className="text-base leading-relaxed text-ink-soft">
               I&apos;m an M.S. Computer Science student at the{" "}
-              <span className="text-[#ededed]">
+              <span className="font-semibold text-ink">
                 University of Wisconsin–Madison
               </span>{" "}
               (GPA 4.0), previously a{" "}
-              <span className="text-[#ededed]">
+              <span className="font-semibold text-ink">
                 Senior Member Technical at D. E. Shaw Group
               </span>{" "}
               where I built large-scale data infrastructure and analytics
               platforms across three years.
             </p>
-            <p className="text-base leading-relaxed text-[#888888]">
+            <p className="text-base leading-relaxed text-ink-soft">
               My interests span distributed systems, machine learning, and
               full-stack engineering. I hold a B.E. in Computer Science with a
               Minor in Data Science from{" "}
-              <span className="text-[#ededed]">BITS Pilani</span>, and I enjoy
-              bridging deep systems knowledge with applied AI to ship things that
-              scale.
+              <span className="font-semibold text-ink">BITS Pilani</span>, and
+              I enjoy bridging deep systems knowledge with applied AI to ship
+              things that scale.
             </p>
 
             {/* Education cards */}
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-4 pt-2">
               {education.map((edu) => (
                 <div
                   key={edu.school}
-                  className="rounded-xl border border-white/10 bg-white/5 p-4"
+                  className="border-2 border-ink bg-paper p-4 brut-shadow-sm"
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div>
-                      <p className="text-sm font-semibold text-[#ededed]">
+                      <p className="text-sm font-semibold text-ink">
                         {edu.school}
                       </p>
-                      <p className="text-xs text-[#888888]">{edu.degree}</p>
+                      <p className="font-mono text-xs text-ink-soft">
+                        {edu.degree}
+                      </p>
                     </div>
-                    <span className="shrink-0 text-xs text-[#6366f1]">
+                    <span className="shrink-0 border-2 border-ink bg-accent px-1.5 py-0.5 font-mono text-xs font-semibold text-accent-ink">
                       {edu.gpa}
                     </span>
                   </div>
-                  <p className="mt-1 text-xs text-[#888888]">
+                  <p className="mt-2 font-mono text-xs text-ink-soft">
                     {edu.period} · {edu.courses}
                   </p>
+                  {edu.note && (
+                    <p className="mt-1 font-mono text-xs text-accent">
+                      {edu.note}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>
@@ -113,22 +165,23 @@ export default function About() {
 
           {/* Skills */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="flex flex-col gap-5"
           >
             {Object.entries(skills).map(([group, items]) => (
               <div key={group}>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-[#6366f1]">
+                <p className="mb-2 flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-widest text-ink">
+                  <span className="h-2 w-2 bg-accent" />
                   {group}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {items.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-md border border-white/10 bg-white/5 px-3 py-1 text-xs text-[#ededed]"
+                      className="border-2 border-ink bg-paper px-2.5 py-1 font-mono text-xs text-ink"
                     >
                       {skill}
                     </span>

@@ -53,7 +53,7 @@ export default function CourseList() {
     <div className="flex flex-col gap-10">
       {/* ── Semester (required, single-select) ── */}
       <div>
-        <p className="mb-3 text-[10px] font-semibold uppercase tracking-widest text-[#444]">
+        <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-widest text-ink-soft">
           Semester
         </p>
         <div className="flex flex-wrap gap-2" role="group" aria-label="Select semester">
@@ -62,20 +62,13 @@ export default function CourseList() {
               key={sem}
               onClick={() => handleSemesterChange(sem)}
               aria-pressed={activeSemester === sem}
-              className={`relative rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+              className={`border-2 border-ink px-4 py-2 font-mono text-sm font-medium transition-colors ${
                 activeSemester === sem
-                  ? "text-[#ededed]"
-                  : "text-[#888888] hover:text-[#ededed]"
+                  ? "bg-ink text-paper"
+                  : "bg-paper text-ink hover:bg-ink/10"
               }`}
             >
-              {activeSemester === sem && (
-                <motion.span
-                  layoutId="semester-pill"
-                  className="absolute inset-0 rounded-lg bg-[#6366f1]/20 ring-1 ring-[#6366f1]/50"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                />
-              )}
-              <span className="relative">{sem}</span>
+              {sem}
             </button>
           ))}
         </div>
@@ -83,12 +76,12 @@ export default function CourseList() {
 
       {/* ── Course (optional toggle within semester) ── */}
       <div>
-        <p className="mb-3 text-[10px] font-semibold uppercase tracking-widest text-[#444]">
+        <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-widest text-ink-soft">
           Course
           {activeCourse && (
             <button
               onClick={() => setActiveCourse(null)}
-              className="ml-3 normal-case tracking-normal text-[#6366f1] hover:opacity-75"
+              className="ml-3 normal-case tracking-normal text-accent hover:opacity-75"
             >
               Clear
             </button>
@@ -102,20 +95,13 @@ export default function CourseList() {
                 key={course}
                 onClick={() => setActiveCourse(isActive ? null : course)}
                 aria-pressed={isActive}
-                className={`relative rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+                className={`border-2 border-ink px-3 py-1.5 font-mono text-xs font-medium transition-colors ${
                   isActive
-                    ? "text-[#ededed]"
-                    : "text-[#888888] hover:text-[#ededed]"
+                    ? "bg-ink text-paper"
+                    : "bg-paper text-ink hover:bg-ink/10"
                 }`}
               >
-                {isActive && (
-                  <motion.span
-                    layoutId="course-pill"
-                    className="absolute inset-0 rounded-lg bg-[#6366f1]/20 ring-1 ring-[#6366f1]/50"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-                <span className="relative">{course}</span>
+                {course}
               </button>
             );
           })}
@@ -124,12 +110,12 @@ export default function CourseList() {
 
       {/* ── Type (optional toggle) ── */}
       <div>
-        <p className="mb-3 text-[10px] font-semibold uppercase tracking-widest text-[#444]">
+        <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-widest text-ink-soft">
           Type
           {activeType && (
             <button
               onClick={() => setActiveType(null)}
-              className="ml-3 normal-case tracking-normal text-[#6366f1] hover:opacity-75"
+              className="ml-3 normal-case tracking-normal text-accent hover:opacity-75"
             >
               Clear
             </button>
@@ -143,20 +129,13 @@ export default function CourseList() {
                 key={type}
                 onClick={() => setActiveType(isActive ? null : type)}
                 aria-pressed={isActive}
-                className={`relative rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+                className={`border-2 border-ink px-3 py-1.5 font-mono text-xs font-medium transition-colors ${
                   isActive
-                    ? "text-[#ededed]"
-                    : "text-[#888888] hover:text-[#ededed]"
+                    ? "bg-accent text-accent-ink"
+                    : "bg-paper text-ink hover:bg-ink/10"
                 }`}
               >
-                {isActive && (
-                  <motion.span
-                    layoutId="type-pill"
-                    className="absolute inset-0 rounded-lg bg-white/10 ring-1 ring-white/20"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-                <span className="relative">{label}</span>
+                {label}
               </button>
             );
           })}
@@ -164,7 +143,7 @@ export default function CourseList() {
       </div>
 
       {/* Entry count */}
-      <p className="text-xs text-[#444]">
+      <p className="font-mono text-xs text-ink-soft">
         {filtered.length} {filtered.length === 1 ? "entry" : "entries"}
       </p>
 
@@ -187,7 +166,7 @@ export default function CourseList() {
       </div>
 
       {filtered.length === 0 && (
-        <p className="py-16 text-center text-sm text-[#555]">
+        <p className="border-2 border-dashed border-ink/30 py-16 text-center font-mono text-sm text-ink-soft">
           No entries match the selected filters.
         </p>
       )}

@@ -5,7 +5,7 @@ import { Mail, Github, Linkedin, FileDown } from "lucide-react";
 
 const links = [
   {
-    href: "mailto:mmehta28@wisc.edu",
+    href: "mailto:maithil.mehta@wisc.edu",
     icon: Mail,
     label: "Email",
     external: false,
@@ -28,7 +28,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-24"
+      className="bg-ink py-24 text-paper"
       aria-labelledby="contact-heading"
     >
       <div className="mx-auto max-w-5xl px-6">
@@ -36,51 +36,64 @@ export default function Contact() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col items-center gap-8 text-center"
+          transition={{ duration: 0.5 }}
+          className="mb-12 flex items-end justify-between border-b-[3px] border-paper pb-3"
         >
-          <div>
-            <h2
-              id="contact-heading"
-              className="text-2xl font-bold text-[#ededed] sm:text-3xl"
-            >
-              Get in Touch
-            </h2>
-            <div className="mx-auto mt-2 h-px w-12 bg-[#6366f1]" />
-            <p className="mt-4 max-w-md text-base text-[#888888]">
+          <h2
+            id="contact-heading"
+            className="font-display text-3xl font-bold uppercase tracking-tight text-paper sm:text-4xl"
+          >
+            Contact
+          </h2>
+          <span className="font-mono text-sm text-paper/60">04 / 04</span>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="flex flex-col items-start gap-8 border-2 border-paper p-8 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div className="max-w-md">
+            <p className="font-display text-2xl font-bold uppercase text-paper">
+              Let&apos;s build something<span className="text-accent">.</span>
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-paper/70">
               Open to research collaborations, internships, and full-time
               opportunities. Reach out any time.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            {links.map(({ href, icon: Icon, label, external }) => (
-              <a
-                key={label}
-                href={href}
-                target={external ? "_blank" : undefined}
-                rel={external ? "noopener noreferrer" : undefined}
-                className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-5 py-2.5 text-sm text-[#888888] transition-colors hover:border-white/20 hover:text-[#ededed]"
-              >
-                <Icon size={16} />
-                {label}
-              </a>
-            ))}
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-wrap gap-3">
+              {links.map(({ href, icon: Icon, label, external }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={external ? "_blank" : undefined}
+                  rel={external ? "noopener noreferrer" : undefined}
+                  className="flex items-center gap-2 border-2 border-paper px-4 py-2 font-mono text-xs uppercase tracking-wide text-paper transition-colors hover:bg-paper hover:text-ink"
+                >
+                  <Icon size={15} />
+                  {label}
+                </a>
+              ))}
+            </div>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="brut-press flex items-center justify-center gap-2 border-2 border-accent bg-accent px-4 py-2 font-mono text-xs font-semibold uppercase tracking-wide text-accent-ink brut-shadow-paper"
+            >
+              <FileDown size={15} />
+              View Resume
+            </a>
           </div>
-
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-lg bg-[#6366f1] px-6 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
-          >
-            <FileDown size={15} />
-            View Resume
-          </a>
         </motion.div>
       </div>
 
-      <div className="mt-20 border-t border-white/10 py-6 text-center text-xs text-[#888888]">
+      <div className="mt-16 border-t-2 border-paper/20 py-6 text-center font-mono text-xs text-paper/50">
         © {new Date().getFullYear()} Maithil Mehta. Built with Next.js &amp;
         Tailwind CSS.
       </div>

@@ -39,6 +39,26 @@ export const projects: Project[] = [
 
   // ── AI/ML ────────────────────────────────────────────────────────────────────
   {
+    id: "talmas-diffusion-attention",
+    title: "TALMAS: Training-Free Attention Suppression for Diffusion LMs",
+    description:
+      "Invented a training-free inference intervention for Masked Diffusion Models that suppresses [MASK] token noise via dynamic, asymmetric logit biasing, improving generation coherence on GSM8K and HumanEval with negligible O(n) overhead and no loss in parallel decoding speed.",
+    tags: ["Diffusion Models", "LLM Inference", "Python", "GSM8K", "HumanEval"],
+    category: "AI/ML",
+    links: {
+      paper: "https://drive.google.com/file/d/13rlTpQ0mxyIQPQU5XFYPqKwRkCbfKxFY/view?usp=sharing",
+    },
+  },
+  {
+    id: "exam-assistant-rag-vs-finetune",
+    title: "Course-Specific Exam Assistant — Fine-Tuning vs. RAG Pipeline",
+    description:
+      "Built and benchmarked a hybrid RAG pipeline (Elasticsearch for lexical retrieval + ChromaDB for semantic search) against a LoRA fine-tuned Llama-3.2 model as a TA-led exam prep tool for 150 students. Quantitative analysis showed hybrid RAG reduced hallucinations by a statistically significant margin for transcript-based Q&A, informing the deployment decision.",
+    tags: ["RAG", "LoRA", "Llama-3.2", "Elasticsearch", "ChromaDB", "LLM"],
+    category: "AI/ML",
+    links: {},
+  },
+  {
     id: "salesforce-2fa-hackathon",
     title: "CV-Based 2FA System — Salesforce Hackathon Winner",
     description:
