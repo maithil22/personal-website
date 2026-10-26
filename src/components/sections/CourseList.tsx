@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { coursework } from "../../../data/coursework";
+import { coursework, courses } from "../../../data/coursework";
 import type { EntryType } from "../../../data/coursework";
 import CourseCard from "../ui/CourseCard";
 
@@ -12,13 +12,12 @@ const typeButtons: { type: EntryType; label: string }[] = [
   { type: "assignment", label: "Assignments" },
 ];
 
-// Semesters in order they appear in the data
-const semesters = Array.from(new Set(coursework.map((e) => e.semester)));
+// Semesters in order they appear in the course registry (not just entries,
+// so a course can show up before any work for it has been logged)
+const semesters = Array.from(new Set(courses.map((c) => c.semester)));
 
 function coursesForSemester(semester: string) {
-  return Array.from(
-    new Set(coursework.filter((e) => e.semester === semester).map((e) => e.course))
-  );
+  return courses.filter((c) => c.semester === semester).map((c) => c.name);
 }
 
 const defaultSemester = semesters[0];

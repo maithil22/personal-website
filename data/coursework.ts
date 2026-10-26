@@ -19,6 +19,25 @@ export interface CourseEntry {
   tags: string[];
 }
 
+export interface CourseInfo {
+  name: string;
+  semester: string;
+}
+
+// Registry of every course taken, independent of whether entries exist yet —
+// lets a course appear as a filter option before any papers/assignments are logged.
+export const courses: CourseInfo[] = [
+  { name: "Advanced Operating Systems", semester: "Fall 2025" },
+  { name: "Introduction to Big Data Systems", semester: "Fall 2025" },
+  { name: "Machine Learning", semester: "Fall 2025" },
+  { name: "Distributed Systems", semester: "Spring 2026" },
+  { name: "Foundational Models", semester: "Spring 2026" },
+  { name: "Next Generation Data Systems", semester: "Fall 2026" },
+  { name: "Learning Based Methods for Computer Vision", semester: "Fall 2026" },
+  { name: "High Performance Computing", semester: "Fall 2026" },
+  { name: "AI Agents for Science", semester: "Fall 2026" },
+];
+
 export const coursework: CourseEntry[] = [
   // ─────────────────────────────────────────────────────────────────────────
   // CS 736 — Advanced Operating Systems  (Fall 2025)
