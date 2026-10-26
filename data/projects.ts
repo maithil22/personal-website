@@ -36,8 +36,29 @@ export const projects: Project[] = [
     category: "Systems",
     links: {},
   },
+  {
+    id: "qdrant-fault-tolerance",
+    title: "Fault-Tolerant Vector Search in Qdrant",
+    description:
+      "Measured how replication factor trades storage for resilience in a 3-node Qdrant cluster (1M SIFT-128 vectors, 50 QPS) under live crashes and partitions. RF=2 matched RF=3 on crashes with zero errors and unchanged Recall@10, and RF=3's only edge was partition recovery (p99 18.2 vs. 37.2 ms).",
+    tags: ["Qdrant", "Fault Injection", "Raft", "Vector Database", "CloudLab", "Distributed Systems"],
+    category: "Systems",
+    links: {
+      github: "https://github.com/maithil22/qdrant_analysis",
+      paper: "https://drive.google.com/file/d/1UyIQl6APRZ4AMKVgnVSinDVmGhJlbQRQ/view?usp=sharing",
+    },
+  },
 
   // ── AI/ML ────────────────────────────────────────────────────────────────────
+  {
+    id: "freshlog-context-archive",
+    title: "FreshLog: Freshness-Aware Context Archives for Long-Horizon Agents",
+    description:
+      "Conceived and building FreshLog (3-person team), a lossless context archive for long-horizon LLM agents that flags recalled tool observations made stale by later changes to files, databases, or APIs. Built the append-only event log and per-resource latest-state map, plus agent tools for staleness-labeled recall, history, and revalidation, evaluated on LOCA-Bench against 4 baselines for stale-decision rate, task success, and token cost.",
+    tags: ["LLM Agents", "Context Management", "Python", "Evaluation"],
+    category: "AI/ML",
+    links: {},
+  },
   {
     id: "talmas-diffusion-attention",
     title: "TALMAS: Training-Free Attention Suppression for Diffusion LMs",

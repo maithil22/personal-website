@@ -9,7 +9,10 @@ import {
   useReducedMotion,
   type Variants,
 } from "framer-motion";
-import { Github, Linkedin, FileDown, ArrowDown } from "lucide-react";
+import { Github, Linkedin, FileDown, ExternalLink, ArrowDown } from "lucide-react";
+
+const RESUME_DRIVE_URL =
+  "https://drive.google.com/file/d/1ZV9zxawk9p-bDVuh2OMpsCT-WhG_hFkn/view?usp=sharing";
 
 const container: Variants = {
   hidden: {},
@@ -113,6 +116,16 @@ export default function Hero() {
             >
               <FileDown size={15} />
               Resume
+            </a>
+            <a
+              href={RESUME_DRIVE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Resume on Google Drive"
+              className="brut-press flex h-11 w-11 items-center justify-center border-2 border-ink bg-paper text-ink brut-shadow-sm"
+              title="Resume on Google Drive"
+            >
+              <ExternalLink size={18} />
             </a>
             <a
               href="https://github.com/maithil22"

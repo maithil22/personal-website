@@ -14,6 +14,8 @@ const skills: Record<string, string[]> = {
     "Ruby",
     "HTML",
     "CSS",
+    "React",
+    "Ruby on Rails",
   ],
   "Machine Learning & Data Science": [
     "PyTorch",
@@ -27,13 +29,17 @@ const skills: Record<string, string[]> = {
   ],
   "Generative AI & LLMs": [
     "HuggingFace Transformers",
+    "OpenAI/Anthropic APIs",
+    "MCP",
     "PEFT",
     "RAG",
+    "LLM Eval",
     "Quantization",
     "Diffusion Models",
     "Prompt Engineering",
   ],
   "Big Data & Distributed Systems": [
+    "Postgres",
     "Spark",
     "PyArrow",
     "HBase",
@@ -45,6 +51,7 @@ const skills: Record<string, string[]> = {
     "MongoDB",
   ],
   "DevOps & Tools": [
+    "AWS (Lambda, S3, EC2)",
     "Git",
     "Docker",
     "Kubernetes",
@@ -65,9 +72,10 @@ const education = [
   {
     school: "University of Wisconsin–Madison",
     degree: "M.S. Computer Science",
-    period: "Sep 2025 – May 2027",
+    period: "Sep 2025 – Dec 2026",
     gpa: "4.0 / 4.0",
-    courses: "Machine Learning, Foundational Models, Distributed Systems, Big Data",
+    courses:
+      "AI Agents, Foundation Models, Computer Vision, Machine Learning, Distributed Systems, HPC, Big Data",
     note: "Teaching Assistant — Data Management for Data Science",
   },
   {
@@ -114,7 +122,9 @@ export default function About() {
               <span className="font-semibold text-ink">
                 University of Wisconsin–Madison
               </span>{" "}
-              (GPA 4.0), previously a{" "}
+              (GPA 4.0), most recently a Software Engineering Intern at{" "}
+              <span className="font-semibold text-ink">MathWorks</span>, and
+              previously a{" "}
               <span className="font-semibold text-ink">
                 Senior Member Technical at D. E. Shaw Group
               </span>{" "}

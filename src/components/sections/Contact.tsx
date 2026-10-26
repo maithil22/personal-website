@@ -1,7 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, FileDown } from "lucide-react";
+import { Mail, Github, Linkedin, FileDown, ExternalLink } from "lucide-react";
+
+const RESUME_DRIVE_URL =
+  "https://drive.google.com/file/d/1ZV9zxawk9p-bDVuh2OMpsCT-WhG_hFkn/view?usp=sharing";
 
 const links = [
   {
@@ -88,6 +91,15 @@ export default function Contact() {
             >
               <FileDown size={15} />
               View Resume
+            </a>
+            <a
+              href={RESUME_DRIVE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 border-2 border-paper px-4 py-2 font-mono text-xs uppercase tracking-wide text-paper transition-colors hover:bg-paper hover:text-ink"
+            >
+              <ExternalLink size={15} />
+              Resume on Drive
             </a>
           </div>
         </motion.div>
